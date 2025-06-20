@@ -3,11 +3,11 @@ import bcrypt from "bcryptjs";
 
 // interface decalaration in TypeScript.... (s in string)
 export interface IUser {
-    email: string,
-    password: string,
-    _id?: mongoose.Types.ObjectId,
-    createdAt?: Date,
-    updatedAt?: Date
+    email: string;
+    password: string;
+    _id?: mongoose.Types.ObjectId;
+    createdAt?: Date;
+    updatedAt?: Date;
 };
 
 // using the interface... to declare a Schema in JS
@@ -40,4 +40,5 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
-
+const User = models?.User || model<IUser>("User", userSchema);
+export default User;
