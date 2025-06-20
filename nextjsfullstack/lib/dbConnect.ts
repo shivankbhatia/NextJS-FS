@@ -1,5 +1,7 @@
+import { maxHeaderSize } from "http";
 import mongoose from "mongoose";
 
+// ❌❌
 const MONGODB_URI = process.env.MONGODB_URI!;
 if (!MONGODB_URI) {
     throw new Error("Please Define MONGODB_URI in .env file variables.")
@@ -18,8 +20,14 @@ export async function ConnectDB() {
     }
 
     if (!cached.promise) {
+        //paid wale options....
+        const opts = {
+            bufferCommands: true,
+            maxPoolSize: 10
+        }
         mongoose
             .connect(MONGODB_URI)
+            //.connect(MONGODB_URI, opts)
             .then(() => mongoose.connection)
     }
 
