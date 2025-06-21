@@ -21,4 +21,8 @@ class ApiClient {
             throw new Error(await response.text())
         return response.json()
     }
+
+    async getVideos() {
+        return this.fetch("/videos")
+    }
 }
