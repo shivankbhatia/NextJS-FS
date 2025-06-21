@@ -18,7 +18,7 @@ function RegisterPage() {
 
         try {
             // react-query use here for more functionality.
-            // loading state management, error state managament, debouncing management,  etc....
+            // loading state management, error state managament, debouncing management, etc....
             const response = await fetch("/api/auth/register", {
                 method: "POST",
                 headers: {
